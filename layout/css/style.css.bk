@@ -1,0 +1,28 @@
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    vertical-align: middle;
+    padding: 5px;
+}
+.iconfa-show{ 
+    color:#419641;
+    cursor:pointer;
+    font-size:22px;
+    position:relative;
+    top:3px;
+}
+.iconfa-hide{
+    color:#F00;
+    cursor:pointer;
+    font-size:22px;
+    position:relative;
+    top:3px;
+}
+.act a {
+    font-size: 20px;
+    position: relative;
+    top: 3px;
+    margin: 0 8px;
+}
+.w50{
+    width:50px;
+    text-align:center;
+}

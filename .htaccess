@@ -1,0 +1,32 @@
+DirectoryIndex index.php
+RewriteEngine On
+
+#RewriteCond %{HTTP_HOST} !^www\. [NC,OR]
+#RewriteCond %{HTTPS} off
+#RewriteRule ^(.*)$ http://admin.13thknight.com/$1 [R=301,L]
+
+RewriteRule ^([a-zA-Z0-9_-]*)$ index.php?controller=$1&action=index&%{QUERY_STRING} [NC,L]
+RewriteRule ^([a-zA-Z0-9_-]*)/$ index.php?controller=$1&action=index&%{QUERY_STRING} [NC,L]
+RewriteRule ^([a-zA-Z0-9_-]*)/edit/(\d+)$ index.php?controller=$1&action=edit&id=$2&%{QUERY_STRING} [NC,L]
+RewriteRule ^([a-zA-Z0-9_-]*)/delete/(\d+)$ index.php?controller=$1&action=delete&id=$2&%{QUERY_STRING} [NC,L]
+RewriteRule ^([a-zA-Z0-9_-]*)/([a-zA-Z0-9_-]*)/(\d+)$ index.php?controller=$1&action=$2&id=$3&%{QUERY_STRING} [NC,L]
+RewriteRule ^([a-zA-Z0-9_-]*)/([a-zA-Z0-9_-]*)$ index.php?controller=$1&action=$2&%{QUERY_STRING} [NC,L]
+RewriteRule ^([a-zA-Z0-9_-]*)/([a-zA-Z0-9_-]*)$ index.php?controller=$1&action=$2&%{QUERY_STRING} [NC,L]
+RewriteRule ^([a-zA-Z0-9_-]*)/([a-zA-Z0-9_-]*)/$ index.php?controller=$1&action=$2&%{QUERY_STRING} [NC,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?/$1 [L,QSA]
+
+# disable the server signature
+#ServerSignature Off
+
+# limit file uploads to 10mb
+LimitRequestBody 10240000
+Options All -Indexes
+
+# BEGIN cPanel-generated php ini directives, do not edit
+# Manual editing of this file may result in unexpected behavior.
+# To make changes to this file, use the cPanel MultiPHP INI Editor (Home >> Software >> MultiPHP INI Editor)
+# For more information, read our documentation (https://go.cpanel.net/EA4ModifyINI)
+# END cPanel-generated php ini directives, do not edit

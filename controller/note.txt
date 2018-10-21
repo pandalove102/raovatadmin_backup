@@ -1,0 +1,1 @@
+toan bo controller con deu ke thu controler kia de goi cac model va view
