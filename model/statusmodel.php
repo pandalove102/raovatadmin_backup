@@ -9,7 +9,8 @@ class statusmodel extends model
 
 	function liststatus()
 	{
-		$sql = "select * from ". $this->table;
+		$sql = "select * from ". $this->table." where hide=1";
+		echo $sql;
 		$this->setQuery($sql);
 		return $this->loadAllRow();
 	}

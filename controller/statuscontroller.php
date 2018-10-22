@@ -12,7 +12,7 @@ class statuscontroller  extends controller
 		$this->title='Danh sách trạng thái sản phẩm';
 		$this->h = 'Danh sách trạng thái sản phẩm';
 		$this->a = 'Trạng thái sản phẩm';
-		$this->strong = 'Danh sách';
+		$this->strong = 'Danh sách trạng thái sản phẩm';
 		$this->setscript(array('layout/js/plugins/dataTables/datatables.min.js'));
 		$this->setcss(array('layout/css/plugins/dataTables/datatables.min.css'));
 		$status = $this->model->liststatus();
@@ -135,11 +135,31 @@ class statuscontroller  extends controller
 		$this->setdata(array('status'=>$status));
 		$this->render('create_and_edit_form');
 	}
+	//code cũ 
+		// function delete()
+		// {
+		// 	$id = $this->get('id');
+		// 	$status = $this->model->getonekey(array('id'=>$id));
+		// 	if($this->model->delete($status))
+		// 	{
+		// 		$this->model->logs('Xóa thành công tài khoản: '.'status/delete/'.$status->id);
+		// 		redirect('status',1);
+		// 	}
+		// 	else
+		// 	{
+		// 		$this->setmsg('Xóa không thành công!','success');
+		// 	}
+		// 	$this->render('list_view');
+		// }
 	function delete()
 	{
 		$id = $this->get('id');
 		$status = $this->model->getonekey(array('id'=>$id));
-		if($this->model->delete($status))
+		$data = array(
+			'id'=>$id,
+			'hide'=>2
+		);
+		if($this->model->update($data))
 		{
 			$this->model->logs('Xóa thành công tài khoản: '.'status/delete/'.$status->id);
 			redirect('status',1);
@@ -149,6 +169,7 @@ class statuscontroller  extends controller
 			$this->setmsg('Xóa không thành công!','success');
 		}
 		$this->render('list_view');
+
 	}
 }
  

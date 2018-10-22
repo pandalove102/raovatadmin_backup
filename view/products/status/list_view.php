@@ -52,7 +52,7 @@
                               </td>
                               <td class="center">
                                  <a href="<?=base_url('status/edit/'.$v->id); ?>" ><span class="glyphicon glyphicon-pencil"></span></a>
-                                 <a class="delete-confirm" href="<?=base_url('status/hide/'.$v->id); ?>"><span class="glyphicon glyphicon-trash"></span></a>
+                                 <a class="delete-confirm" href="<?=base_url('status/delete/'.$v->id); ?>"><span class="glyphicon glyphicon-trash"></span></a>
                               </td>
                            </tr>
                         <?php }} else echo '<tr><td colspan="10">Chưa có dữ liệu</td></tr>' ?>
